@@ -1,0 +1,59 @@
+// Define variables for common values
+$font-family: 'Arial', sans-serif;
+$base-font-size: 16px;
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+// Define media query breakpoints
+$phone: 480px;
+$tablet: 768px;
+$pc-widescreen: 1200px;
+
+// Base styles
+body {
+  font-family: $font-family;
+  font-size: $base-font-size;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: $primary-color;
+}
+
+#output {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid $secondary-color;
+  background-color: #f0f0f0;
+}
+
+button {
+  background-color: $primary-color;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+// Responsive styles
+@media only screen and (max-width: $phone) {
+  // Styles for phones
+  body {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: $tablet) and (max-width: $pc-widescreen) {
+  // Styles for tablets and small PCs
+  #output {
+    margin: 10px;
+  }
+}
+
+@media only screen and (min-width: $pc-widescreen) {
+  // Styles for PC widescreen
+  body {
+    max-width: $pc-widescreen;
+    margin: 0 auto;
+  }
+}
