@@ -12,10 +12,9 @@
                     return response.json();
                 })
                 .then(function (data) {
-                    // Combine both assignments here
                     document.getElementById('output').innerHTML = "Locationname: " + data.features[random].properties.LOCATION +
-                        "<br>Adresse: " + data.features[random].properties.ADRESSE
-                        "<br>Bezirk: " + data.features[random].properties.BEZIRK
+                        "<br>Adresse: " + data.features[random].properties.ADRESSE +
+                        "<br>Website: " + data.features[random].properties.WEBLINK1
                     ;
                 });
         }
@@ -24,6 +23,6 @@
 <body>
 <h1>Generiere eine Hochzeitslocation:</h1>
 <div id="output">  </div>
-<button onclick="fetchData()"> Klick mich </button>
+<button onclick="fetchData()"> Glückliche Wahl </button>
 </body>
 </html>
