@@ -7,14 +7,16 @@
     <script>
         function fetchData() {
             let random = Math.floor(Math.random() * 165);
-            fetch("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1\n" +
-                ".1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFor\n" +
-                "mat=json")
+            fetch("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json")
                 .then(function (response) {
                     return response.json();
                 })
                 .then(function (data) {
-                    document.getElementById('output').innerHTML = data.features[random].properties.LOCATION;
+                    // Combine both assignments here
+                    document.getElementById('output').innerHTML = "Locationname: " + data.features[random].properties.LOCATION +
+                        "<br>Adresse: " + data.features[random].properties.ADRESSE
+                        "<br>Bezirk: " + data.features[random].properties.ADRESSE
+                    ;
                 });
         }
     </script>
