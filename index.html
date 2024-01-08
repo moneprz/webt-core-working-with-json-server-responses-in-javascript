@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax demo</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script>
+        function fetchData() {
+            let random = Math.floor(Math.random() * 165);
+            fetch("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TRAUMHOCHZEITOGD&srsName=EPSG:4326&outputFormat=json")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (data) {
+                    document.getElementById('output').innerHTML = "Locationname: " + data.features[random].properties.LOCATION +
+                        "<br>Adresse: " + data.features[random].properties.ADRESSE +
+                    "<br>Weblink: " + data.features[random].properties.WEBLINK1;
+                });
+        }
+    </script>
+</head>
+<body>
+<h1>Generiere eine Hochzeitslocation:</h1>
+<div class="container">
+<div id="output">   </div>
+
+<button onclick="fetchData()" class="button"> Glückliche Wahl </button>
+</div>
+</body>
+</html>
