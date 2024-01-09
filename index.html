@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajax demo</title>
-    <link rel="stylesheet" href="stylesheet.scss">
+    <link rel="stylesheet" href="style.css">
     <script>
         function fetchData() {
             let random = Math.floor(Math.random() * 165);
@@ -14,15 +14,22 @@
                 .then(function (data) {
                     document.getElementById('output').innerHTML = "Locationname: " + data.features[random].properties.LOCATION +
                         "<br>Adresse: " + data.features[random].properties.ADRESSE +
-                        "<br>Website: " + data.features[random].properties.WEBLINK1
-                    ;
+                        "<br>Weblink: " + data.features[random].properties.WEBLINK1;
                 });
+        }
+        function reloadPage() {
+            location.reload(true);
         }
     </script>
 </head>
 <body>
-<h1>Generiere eine Hochzeitslocation:</h1>
-<div id="output">  </div>
-<button onclick="fetchData()"> Glückliche Wahl </button>
+<h1>Generiere deine Hochzeitslocation</h1>
+<div class="container">
+    <div id="output">
+    <p>Ablauf: <br> 1) Klicke auf den blauen Button <br> 2) Klicke dich durch bis du deine Traumlocation gefunden hast.</p>
+    </div>
+    <button onclick="fetchData()" class="button"> Glückliche Wahl </button>
+    <button onclick="reloadPage()" class="button1"> Zurück zur Startseite </button>
+</div>
 </body>
 </html>
